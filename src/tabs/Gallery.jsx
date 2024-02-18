@@ -1,15 +1,7 @@
 import { Component } from 'react';
 
 import * as ImageService from 'service/image-service';
-import {
-  Button,
-  Grid,
-  GridItem,
-  Text,
-  CardItem,
-  SearchForm,
-  ImageGallery,
-} from 'components';
+import { Button, Text, SearchForm, ImageGallery } from 'components';
 
 export class Gallery extends Component {
   state = {
