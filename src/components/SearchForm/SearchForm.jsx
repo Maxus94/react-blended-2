@@ -6,6 +6,7 @@ import { FormBtn, InputSearch, SearchFormStyled } from './SearchForm.styled';
 export class SearchForm extends Component {
   state = {
     searchText: '',
+
   };
 
   handleChange = evt => {
