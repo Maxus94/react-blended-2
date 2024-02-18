@@ -6,7 +6,6 @@ import { FormBtn, InputSearch, SearchFormStyled } from './SearchForm.styled';
 export class SearchForm extends Component {
   state = {
     searchText: '',
-
   };
 
   handleChange = evt => {
@@ -16,11 +15,11 @@ export class SearchForm extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.handleSubmit(this.state.searchText);
-  }
+  };
 
   render() {
     return (
-      <SearchFormStyled  onSubmit={this.handleSubmit}>
+      <SearchFormStyled onSubmit={this.handleSubmit}>
         <FormBtn type="submit">
           <FiSearch size="16px" />
         </FormBtn>
