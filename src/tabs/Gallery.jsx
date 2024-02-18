@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import * as ImageService from 'service/image-service';
 import { Button, Text, SearchForm, ImageGallery, Loader } from 'components';
-import {ImageModal} from "../components/ImageModal/ImageModal";
+import { ImageModal } from '../components/ImageModal/ImageModal';
 
 export class Gallery extends Component {
   state = {
@@ -13,7 +13,6 @@ export class Gallery extends Component {
     isEmpty: false,
     isLoading: false,
   };
-
 
   componentDidUpdate(_, prevState) {
     const { searchText, page } = this.state;
@@ -56,30 +55,28 @@ export class Gallery extends Component {
 
   handleOpenModel = ({ modalImg, textAlt }) => {
     this.setState({ isShowModal: true, modalImg, textAlt });
-
   };
 
   handleCloseModal = () => {
     this.setState({ isShowModal: false, modalImg: '', textAlt: '' });
-  }
+  };
 
   render() {
     const {
       photos,
       showBtn,
       isEmpty,
-      isLoading ,
+      isLoading,
       isShowModal,
       modalImg,
-      textAlt
+      textAlt,
     } = this.state;
     return (
       <>
         <SearchForm handleSubmit={this.handleSubmit} />
-        {photos.length > 0 && <ImageGallery
-          photos={photos}
-          onOpenModal={this.handleOpenModel}
-        />}
+        {photos.length > 0 && (
+          <ImageGallery photos={photos} onOpenModal={this.handleOpenModel} />
+        )}
         {showBtn && (
           <Button onClick={this.handleLoadMore}>Load more ...</Button>
         )}
@@ -88,7 +85,13 @@ export class Gallery extends Component {
         )}
         {isLoading && <Loader />}
 
-        {isShowModal && <ImageModal img={modalImg} textAlt={textAlt} onClose={this.handleCloseModal}/>}
+        {isShowModal && (
+          <ImageModal
+            img={modalImg}
+            textAlt={textAlt}
+            onClose={this.handleCloseModal}
+          />
+        )}
       </>
     );
   }
